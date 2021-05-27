@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration>
+<!-- Status determines which log4j log messages are included. -->
+<Configuration status="WARN">
+// look into logger name, try passing in string or something -- get to match up
+	<Appenders>
+			<!-- We can make the console output more user-friendly if we want. -->
+			<Console name="Console" target="SYSTEM_OUT">
+				<PatternLayout pattern="%m%n">
+				</PatternLayout>
+			</Console>
+			
+			<!-- We can still keep details in a file log for debugging. -->
+			<File name="FileLog" fileName="debug.log" append="false">
+				<PatternLayout
+					pattern="%m%n">
+				</PatternLayout>
+			</File>
+	</Appenders>
+	
+	<Loggers>
+	<!-- You can modify per-class logging levels if you want. -->
+		<Logger name="InvertedIndex" level="ALL" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+	</Loggers>
+</Configuration>
+		
